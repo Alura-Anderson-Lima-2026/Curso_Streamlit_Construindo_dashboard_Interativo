@@ -10,4 +10,8 @@ url = "https://labdados.com/produtos"
 response = requests.get(url)
 dados = pd.DataFrame.from_dict(response.json())
 
-st.dataframe(dados)
+
+dadoss = pd.read_csv("dados.csv") 
+
+
+st.dataframe(dadoss)
