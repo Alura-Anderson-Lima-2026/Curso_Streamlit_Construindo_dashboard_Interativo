@@ -10,8 +10,24 @@ url = "https://labdados.com/produtos"
 response = requests.get(url)
 dados = pd.DataFrame.from_dict(response.json())
 
+st.divider()
 
-dadoss = pd.read_csv("dados.csv") 
+col1, col2 = st.columns(2)
 
+with col1:
 
-st.dataframe(dadoss)
+    st.metric(
+        'Receita',
+        dados['Preço'].sum()
+    )
+
+with col2:
+    
+    st.metric(
+        'Quantidade',
+        dados.shape[0]
+    )
+
+st.divider()
+
+st.dataframe(dados.head())
