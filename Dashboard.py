@@ -1,7 +1,7 @@
-import streamlit as st 
+import streamlit as st
 from utils.metricas import metricas 
 from utils.tabelas import dataframe 
-
+from database.import_requests import dados_requests 
 
 
 st.set_page_config(
