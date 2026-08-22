@@ -2,6 +2,14 @@ import streamlit as st
 import pandas as pd
 import requests
 import plotly.express as px
+from formacao.formata_numeros import formatar_valor
+from formacao.formata_numeros import formatar_quantidade
+
+st.set_page_config(
+    page_icon="",
+    page_title="Vendas",
+    layout="wide"
+)
 
 
 st.title('Dashboard Vendas')
@@ -18,15 +26,17 @@ with col1:
 
     st.metric(
         'Receita',
-        dados['Preço'].sum()
+        formatar_valor(dados['Preço'].sum())
     )
 
 with col2:
     
     st.metric(
         'Quantidade',
-        dados.shape[0]
+        formatar_quantidade(dados.shape[0])
     )
+    
+
 
 st.divider()
 
