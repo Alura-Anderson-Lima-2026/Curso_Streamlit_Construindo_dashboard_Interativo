@@ -1,5 +1,10 @@
-import pandas as pd
+from database.import_requests import requests
 
-# Tabelas
 
-receita_estados = dados.
+dados = requests()
+
+def dataframe():
+    # Função de DataFrame
+    dados
+
+    return dataframe
