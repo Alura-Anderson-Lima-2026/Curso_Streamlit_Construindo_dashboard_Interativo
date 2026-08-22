@@ -1,9 +1,12 @@
 import streamlit as st 
 import pandas as pd
-import requests
 import plotly.express as px
 from formacao.formata_numeros import formatar_valor
 from formacao.formata_numeros import formatar_quantidade
+from database.import_requests import dados_requests
+
+dados = dados_requests()
+
 
 st.set_page_config(
     page_icon="",
@@ -14,9 +17,12 @@ st.set_page_config(
 
 st.title('Dashboard Vendas')
 
-url = "https://labdados.com/produtos"
-response = requests.get(url)
-dados = pd.DataFrame.from_dict(response.json())
+# url = "https://labdados.com/produtos"
+# response = requests.get(url)
+# dados = pd.DataFrame.from_dict(response.json())
+
+
+
 
 st.divider()
 
@@ -36,7 +42,15 @@ with col2:
         formatar_quantidade(dados.shape[0])
     )
     
+# with col3:
 
+#     card_kpi(
+#         titulo="Faturamento",
+#         valor="R$ 125.430,50",
+#         delta="▲ 12,5% vs mês anterior",
+#         icone="💰",
+#         positivo=True
+#     )
 
 st.divider()
 
